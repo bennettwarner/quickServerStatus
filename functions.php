@@ -20,7 +20,7 @@ function makeTable($hosts){
   echo '<table class="table table-striped table-bordered" style="text-align: center;">
           <tr>
            <th style="text-align: center;">Server</th>
-           <th style="text-align: center;">Bandwidth</th>
+           <th style="text-align: center;">Status</th>
           </tr>
           ';
   foreach ($hosts as $host) {
