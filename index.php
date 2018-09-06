@@ -1,17 +1,36 @@
 <?php require 'functions.php'; ?>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <title>quickServerStatus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 </head>
 <body>
-  <meta http-equiv="refresh" content="<?php echo $refreshRate?>">
-  <div style="width: 50%; min-width: 400px; margin: auto;">
-    <br>
-    <h1 class="text-center">Server Status</h1>
-    <br>
-    <?php makeTable(getHosts()); ?>
+  <meta http-equiv="refresh" content="<?php echo $refreshRate; ?>">
+  <div class="container">
+    <div class="row">
+      <div class="two columns" style="margin-top: 10%">
+      </div>
+      <div class="eight columns" style="margin-top: 10%">
+        <h2 align='center' class="text-center">quickServerStatus</h2>
+        <?php makeTable(getHosts()); ?>
+      </div>
+    </div>
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.tablesorter.min.js"></script>
+  <script>
+  $(document).ready(function()
+{
+    $("#hostsTable").tablesorter();
+}
+);
+
+  </script>
 </body>
 </html>

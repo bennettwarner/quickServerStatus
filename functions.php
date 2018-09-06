@@ -17,11 +17,14 @@ function getHosts(){
 }
 
 function makeTable($hosts){
-  echo '<table class="table table-striped table-bordered" style="text-align: center;">
+  echo '<table id="hostsTable" class="u-full-width tablesorter" style="text-align: center;">
+        <thead>
           <tr>
-           <th style="text-align: center;">Server</th>
-           <th style="text-align: center;">Status</th>
+           <th style="text-align: left;">Server</th>
+           <th style="text-align: left;">Status</th>
           </tr>
+        </thead>
+        <tbody>
           ';
   foreach ($hosts as $host) {
  		$status = hostStatus($host);
@@ -38,13 +41,15 @@ function makeTable($hosts){
             echo "Online";
           }
         else {
-              echo "Offline";
+              echo "<span style='color:red'>Offline</span>";
         }
           echo "</td>
           </tr>
           ";
     }
-    echo "</table>
+    echo "
+    <tbody>
+    </table>
     ";
   }
 ?>
